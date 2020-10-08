@@ -4,5 +4,8 @@
 
 # GET http://localhost:9000/test/match-group/
 
-GET http://localhost:9000/test/count/
+# GET http://localhost:9000/test/count/
+
+GET http://localhost:9000/test/group-count/
+
 

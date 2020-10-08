@@ -9,3 +9,4 @@ The json file for this project is in [persons.json](persons.json)
 - \$match
 - \$group
 - \$count
+- \$sort

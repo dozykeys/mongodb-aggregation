@@ -42,4 +42,34 @@ router.get("/count", async (req, res) => {
   if (!person) res.status(401).send("Error finding records");
   return res.status(200).send(person);
 });
+
+//aggregate group-count method
+router.get("/group-count", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $group: { _id: "$company.location.country" } },
+    { $count: "gender" },
+  ]);
+
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate sort method
+router.get("/sort", async (req, res) => {
+  const person = await __Person.aggregate([{ $sort: { age: -1 } }]);
+
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate group-sort method
+router.get("/group-sort", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $group: { _id: { fruit: "$favoriteFruit" } } },
+    { $sort: { "_id.fruit": 1 } },
+  ]);
+
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
 module.exports = router;
