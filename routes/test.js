@@ -2,9 +2,28 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 const __Person = require("../models/person");
+const log = require("../config/log4js");
+// const db_seeds = require("../config/persons.js");
 
 router.get("/", async (req, res) => {
-  return res.status(200).send("working");
+  const person = await __Person.find({}).countDocuments();
+
+  if (person < 1) {
+    __Person
+      .insertMany(db_seeds)
+      .then(() => {
+        log.info("Persons records has been added");
+        console.log("Persons records has been added");
+      })
+      .catch((err) => {
+        log.error("Persons records could not e added");
+        console.log("Persons records could not e added");
+      });
+  } else {
+    log.info("Persons records all set up");
+    console.log("Persons records all set up");
+  }
+  return res.status(200).send("success");
 });
 
 //aggregate match stage
@@ -116,6 +135,53 @@ router.get("/unwind-group", async (req, res) => {
     { $limit: 2 },
     { $unwind: "$tags" },
     { $group: { _id: "$tags" } },
+  ]);
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate sum accumulator
+router.get("/sum", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $group: { _id: "$age", count: { $sum: "$age" } } },
+  ]);
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate avg accumulator
+router.get("/avg", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $group: { _id: "$age", average: { $avg: "$age" } } },
+  ]);
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate type accumulator
+router.get("/type", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $project: { type: { $type: "$isActive" } } },
+  ]);
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate type accumulator
+router.get("/out", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $project: { type: { $type: "$isActive" } } },
+    { $out: "outCollections" },
+  ]);
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate allowDiskUse accumulator
+router.get("/allowDiskUse", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $project: { type: { $type: "$isActive" } } },
+    { allowDiskUse: true },
   ]);
   if (!person) res.status(401).send("Error finding records");
   return res.status(200).send(person);

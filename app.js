@@ -5,7 +5,7 @@ const log = require("./config/log4js");
 const test = require("./routes/test");
 const bParser = require("body-parser");
 
-const db = require("./db");
+const db = require("./config/db");
 const app = express();
 
 app.use("/test", test);

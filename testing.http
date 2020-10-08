@@ -1,3 +1,6 @@
+# GET http://localhost:9000/test
+
+
 # GET http://localhost:9000/test/match/
 
 # GET http://localhost:9000/test/group/
@@ -20,7 +23,22 @@
 
 # GET http://localhost:9000/test/unwind/
 
-GET http://localhost:9000/test/unwind-group/
+# GET http://localhost:9000/test/unwind-group/
+
+# GET http://localhost:9000/test/sum/
+
+# GET http://localhost:9000/test/avg/
+
+# GET http://localhost:9000/test/type/
+
+# GET http://localhost:9000/test/out/
+
+# GET http://localhost:9000/test/allowDiskUse/
+
+
+
+
+
 
 
 
