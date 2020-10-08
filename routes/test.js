@@ -34,4 +34,12 @@ router.get("/match-group", async (req, res) => {
   if (!person) res.status(401).send("Error finding records");
   return res.status(200).send(person);
 });
+
+//aggregate count method
+router.get("/count", async (req, res) => {
+  const person = await __Person.aggregate([{ $count: "gender" }]);
+
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
 module.exports = router;
