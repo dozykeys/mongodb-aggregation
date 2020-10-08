@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const __Person = require("../models/person");
 const log = require("../config/log4js");
-// const db_seeds = require("../config/persons.js");
+const db_seeds = require("../config/persons.js");
 
 router.get("/", async (req, res) => {
   const person = await __Person.find({}).countDocuments();
