@@ -34,7 +34,7 @@ Unary operators can also be used in the group stage in conjunction with Accumula
 
 - \$out
 
-###TIPS
+### TIPS
 
 - Each mongoose aggregation stage can use maximum 100MB of RAM.
 - Server will return error if limit is exceeded.
