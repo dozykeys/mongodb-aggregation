@@ -7,14 +7,14 @@ router.get("/", async (req, res) => {
   return res.status(200).send("working");
 });
 
-//aggregate match method
+//aggregate match stage
 router.get("/match", async (req, res) => {
   const person = await __Person.aggregate([{ $match: { age: { $lte: 25 } } }]);
 
   if (!person) res.status(401).send("Error finding records");
   return res.status(200).send(person);
 });
-//aggregate group method
+//aggregate group stage
 router.get("/group", async (req, res) => {
   const person = await __Person.aggregate([
     { $group: { _id: { gender: "$gender", isActive: "$isActive" } } },
@@ -24,7 +24,7 @@ router.get("/group", async (req, res) => {
   return res.status(200).send(person);
 });
 
-//aggregate match-group method
+//aggregate match-group stage
 router.get("/match-group", async (req, res) => {
   const person = await __Person.aggregate([
     { $match: { favoriteFruit: "banana" } },
@@ -35,7 +35,7 @@ router.get("/match-group", async (req, res) => {
   return res.status(200).send(person);
 });
 
-//aggregate count method
+//aggregate count stage
 router.get("/count", async (req, res) => {
   const person = await __Person.aggregate([{ $count: "gender" }]);
 
@@ -43,7 +43,7 @@ router.get("/count", async (req, res) => {
   return res.status(200).send(person);
 });
 
-//aggregate group-count method
+//aggregate group-count stage
 router.get("/group-count", async (req, res) => {
   const person = await __Person.aggregate([
     { $group: { _id: "$company.location.country" } },
@@ -54,7 +54,7 @@ router.get("/group-count", async (req, res) => {
   return res.status(200).send(person);
 });
 
-//aggregate sort method
+//aggregate sort stage
 router.get("/sort", async (req, res) => {
   const person = await __Person.aggregate([{ $sort: { age: -1 } }]);
 
@@ -62,13 +62,61 @@ router.get("/sort", async (req, res) => {
   return res.status(200).send(person);
 });
 
-//aggregate group-sort method
+//aggregate group-sort stage
 router.get("/group-sort", async (req, res) => {
   const person = await __Person.aggregate([
     { $group: { _id: { fruit: "$favoriteFruit" } } },
     { $sort: { "_id.fruit": 1 } },
   ]);
 
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate project stage
+router.get("/project", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $project: { _id: 0, gender: 1, info: { newAge: "$age" } } },
+  ]);
+
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate limit stage
+router.get("/limit", async (req, res) => {
+  const person = await __Person.aggregate([{ $limit: 2 }]);
+
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate limit-match-group stage
+router.get("/limit-match-group", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $limit: 100 },
+    { $match: { gender: "female" } },
+    { $group: { _id: "$isActive" } },
+  ]);
+
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate unwind stage
+router.get("/unwind", async (req, res) => {
+  const person = await __Person.aggregate([{ $unwind: "$tags" }]);
+  if (!person) res.status(401).send("Error finding records");
+  return res.status(200).send(person);
+});
+
+//aggregate unwind-group stage
+router.get("/unwind-group", async (req, res) => {
+  const person = await __Person.aggregate([
+    { $limit: 2 },
+    { $unwind: "$tags" },
+    { $group: { _id: "$tags" } },
+  ]);
   if (!person) res.status(401).send("Error finding records");
   return res.status(200).send(person);
 });
