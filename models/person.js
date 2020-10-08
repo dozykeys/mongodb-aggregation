@@ -22,5 +22,5 @@ const personSchema = new Schema({
   tags: [String],
 });
 
-const personModel = mongoose.model("persons", personSchema);
+const personModel = mongoose.model("person", personSchema);
 module.exports = personModel;

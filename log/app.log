@@ -336,3 +336,49 @@
 [2020-10-08T17:55:50.366] [INFO] app - 🚀 listening to server on port 9000
 [2020-10-08T17:55:50.406] [INFO] app - Connected to MongoDB
 [2020-10-08T17:55:53.802] [INFO] app - Persons records all set up
+[2020-10-08T23:22:22.246] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:22:22.344] [INFO] app - Connected to MongoDB
+[2020-10-08T23:22:45.883] [INFO] app - Persons records all set up
+[2020-10-08T23:23:20.058] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:23:20.082] [INFO] app - Connected to MongoDB
+[2020-10-08T23:23:32.054] [ERROR] app - Persons records could not e added
+[2020-10-08T23:25:19.009] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:25:19.042] [INFO] app - Connected to MongoDB
+[2020-10-08T23:25:25.486] [ERROR] app - Persons records could not be added
+[2020-10-08T23:25:57.014] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:25:57.049] [INFO] app - Connected to MongoDB
+[2020-10-08T23:26:11.206] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:26:11.238] [INFO] app - Connected to MongoDB
+[2020-10-08T23:26:16.021] [ERROR] app - Persons records could not be added
+[2020-10-08T23:30:43.626] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:30:43.645] [INFO] app - Connected to MongoDB
+[2020-10-08T23:30:51.182] [ERROR] app - Persons records could not be added
+[2020-10-08T23:31:34.148] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:31:34.185] [INFO] app - Connected to MongoDB
+[2020-10-08T23:43:10.591] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:43:10.637] [INFO] app - Connected to MongoDB
+[2020-10-08T23:43:15.825] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:43:15.858] [INFO] app - Connected to MongoDB
+[2020-10-08T23:43:20.892] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:43:20.927] [INFO] app - Connected to MongoDB
+[2020-10-08T23:43:25.047] [INFO] app - Persons records has been added
+[2020-10-08T23:45:48.731] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:45:48.775] [INFO] app - Connected to MongoDB
+[2020-10-08T23:47:14.013] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:47:14.039] [INFO] app - Connected to MongoDB
+[2020-10-08T23:47:14.063] [INFO] app - Persons records all set up
+[2020-10-08T23:47:30.432] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:47:30.459] [INFO] app - Connected to MongoDB
+[2020-10-08T23:47:30.479] [INFO] app - Persons records already set up
+[2020-10-08T23:47:37.413] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:47:37.446] [INFO] app - Connected to MongoDB
+[2020-10-08T23:47:37.478] [INFO] app - Persons records already set up
+[2020-10-08T23:47:53.375] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:47:53.398] [INFO] app - Connected to MongoDB
+[2020-10-08T23:47:53.425] [INFO] app - Persons records already set up
+[2020-10-08T23:47:56.145] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:47:56.176] [INFO] app - Connected to MongoDB
+[2020-10-08T23:47:56.205] [INFO] app - Persons records already set up
+[2020-10-08T23:48:01.397] [INFO] app - 🚀 listening to server on port 9000
+[2020-10-08T23:48:01.425] [INFO] app - Connected to MongoDB
+[2020-10-08T23:48:01.452] [INFO] app - Persons records already set up
